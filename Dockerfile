@@ -12,5 +12,11 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy the source code to the working directory
 COPY . .
 
+# Set environment variables
+ENV PORT 8080
+
+# Expose the port
+EXPOSE 8080
+
 # Run the command to start the application
-CMD ["python", "main.py"]
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8080"]
